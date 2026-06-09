@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    image: remote-web-control:latest
+    container_name: remote-web-control
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SESSION_TTL_MINUTES: "30"
+      MAX_SESSIONS: "500"
+      # PUBLIC_HOST — IP/hostname, по которому телефон достучится до этого сервера.
+      # В bridge-сети внутренний eth0 контейнера недоступен извне LAN —
+      # укажи здесь LAN-IP хоста docker (например, 192.168.1.42).
+      # PUBLIC_HOST: "192.168.1.42"

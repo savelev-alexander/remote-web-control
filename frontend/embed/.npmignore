@@ -1,0 +1,16 @@
+# Build configs & sources
+src/
+tests/
+scripts/
+node_modules/
+*.config.ts
+*.config.mjs
+tsconfig.json
+tsconfig.build.json
+tsconfig.tsbuildinfo
+.gitignore
+
+# Ensure these are kept:
+# - dist/ (built artifacts)
+# - README.md, LICENSE, CHANGELOG.md
+# - package.json

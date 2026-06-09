@@ -1,0 +1,81 @@
+{
+  "name": "qr-embed-remote",
+  "version": "0.1.0",
+  "description": "Drop-in JavaScript library that adds a QR-paired phone remote to any existing web page. Pair a phone via QR, control the host page's buttons, inputs, sliders, toggles and selects from the phone.",
+  "type": "module",
+  "main": "dist/qr-remote.cjs",
+  "module": "dist/qr-remote.mjs",
+  "types": "dist/index.d.ts",
+  "style": "dist/qr-remote.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/qr-remote.mjs",
+      "require": "./dist/qr-remote.cjs"
+    },
+    "./style.css": "./dist/qr-remote.css",
+    "./iife": "./dist/qr-remote.iife.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "*.css",
+    "./src/index.ts",
+    "./dist/qr-remote.mjs",
+    "./dist/qr-remote.cjs"
+  ],
+  "scripts": {
+    "build": "npm run build:wwwroot && npm run build:npm",
+    "build:wwwroot": "vite build --config vite.config.ts",
+    "build:npm": "rm -rf dist && tsc -p tsconfig.build.json && vite build --config vite.npm.config.ts && vite build --config vite.iife-dist.config.ts",
+    "test": "vitest",
+    "prepack": "npm run build:npm"
+  },
+  "keywords": [
+    "qr",
+    "qr-code",
+    "remote-control",
+    "phone-remote",
+    "embed",
+    "drop-in",
+    "javascript",
+    "typescript",
+    "vanilla",
+    "iife",
+    "esm",
+    "demo",
+    "prototype"
+  ],
+  "author": "Alexander Savelev",
+  "license": "MIT",
+  "homepage": "https://github.com/alexander-savelev/qr-embed-remote#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexander-savelev/qr-embed-remote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexander-savelev/qr-embed-remote/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/qrcode-generator": "^1.0.6",
+    "jsdom": "^25.0.1",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

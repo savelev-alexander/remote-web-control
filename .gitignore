@@ -1,0 +1,25 @@
+# Build output
+dist/
+bin/
+obj/
+server/wwwroot/embed/
+server/wwwroot/desktop/
+server/wwwroot/mobile/
+
+# Dependencies
+node_modules/
+frontend/*/node_modules/
+e2e/node_modules/
+
+# Logs
+logs/*.log
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
